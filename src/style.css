@@ -1,0 +1,400 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+button:focus {
+  outline: none;
+}
+
+.ql-editor p,
+.ql-editor.ql-blank::before {
+  font-size: 1.3em;
+  font-weight: 100;
+}
+
+.nav-spacing {
+  margin-left: 375px;
+}
+
+.side-hide {
+  margin-left: -120px;
+}
+
+.sidebar-button-div {
+  padding-top: 25px;
+  padding-left: 90%; 
+  z-index: 2;
+}
+
+.sidebar-button {
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 110px;
+  border: 1px solid #898989;
+  z-index: 2;
+}
+
+.pane {
+  overflow-y: auto;
+  /* padding: 10px; */
+}
+
+.sidebar {
+  width: 10%;
+  height: 100vh;
+}
+
+/* .sidebar--note {
+  display: flex;
+} */
+
+.sidebar--header {
+  display: inline-block;
+  width: 100%;
+}
+
+.note-header-div {
+  border-top: 1px solid rgba(231, 231, 233, 1);
+  border-bottom: 1px solid rgba(231, 231, 233, 1);
+}
+
+.note-header-div>p {
+  margin-right: 100%;
+  padding: 10px 0px 10px 25px;
+  font-size: 1.15rem;
+  color: #EC7160;
+}
+
+.new-note-btn {
+  overflow: hidden;
+  margin-top: 10px;
+  margin-left: 90px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  background-color: #EC7160;
+  border: none;
+  color: white;
+  border-radius: 7px;
+  height: 40px;
+  width: 265px;
+}
+
+.first-note {
+  cursor: pointer;
+  background-color: #EC7160;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 1rem;
+}
+
+.editor {
+  width: 90%;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.title {
+  overflow: hidden;
+  width: 93.5%;
+  cursor: pointer;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+  padding-left: 10px;
+  border-radius: 7px;
+}
+
+.title--delete {
+  display: none;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.title:hover .title--delete {
+  display: block;
+}
+
+.note-summary:not(:last-of-type) {
+  border-bottom: 1px solid lightgray;
+}
+
+.text-header {
+  font-size: 1.2rem;
+  margin: 0px auto;
+  margin-top: 20px;
+}
+
+.text-snippet {
+  margin: 5px auto;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.2rem;
+  color: #4A4E74;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.selected-note {
+  background-color: #F6F6F6;
+}
+
+.gutter {
+  background-color: #eee;
+
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
+
+.gutter.gutter-horizontal:hover {
+  cursor: col-resize;
+}
+
+.split {
+  display: flex;
+}
+
+.no-notes {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.delete-btn {
+  display: none;
+  background: none;
+  border: none;
+  width: 100%;
+  margin-left: 95%;
+}
+
+.title:hover>.delete-btn {
+  margin-right: 100%;
+  display: inline-block;
+}
+
+.trash-icon {
+  cursor: pointer;
+}
+
+.gg-trash {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs, 1));
+  width: 10px;
+  height: 12px;
+  border: 2px solid transparent;
+  box-shadow:
+    0 0 0 2px,
+    inset -2px 0 0,
+    inset 2px 0 0;
+  border-bottom-left-radius: 1px;
+  border-bottom-right-radius: 1px;
+  margin-top: 4px
+}
+
+.gg-trash::after,
+.gg-trash::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute
+}
+
+.gg-trash::after {
+  background: currentColor;
+  border-radius: 3px;
+  width: 16px;
+  height: 2px;
+  top: -4px;
+  left: -5px
+}
+
+.gg-trash::before {
+  width: 10px;
+  height: 4px;
+  border: 2px solid;
+  border-bottom: transparent;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  top: -7px;
+  left: -2px
+}
+
+nav {
+  min-height: 100vh;
+  position: absolute;
+  background-color: #F6F6F6;
+  width: 23.5rem;
+  z-index: 1;
+}
+
+.img-div {
+  margin-top: 40px;
+  margin-left: 27px;
+}
+
+.img-div img {
+  height: 50px;
+}
+
+nav ul {
+  margin-top: 2rem;
+  margin-bottom: 0px;
+  padding-left: 2.5rem;
+  list-style: none;
+}
+
+nav ul>li {
+  line-height: 3.75rem;
+}
+
+nav a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #898989;
+  padding-left: 1rem;
+  border-left: 4px solid transparent;
+}
+
+nav a.active {
+  text-decoration: none;
+  color: black;
+  padding-left: 1rem;
+  border-left: 4px solid #EC7160;
+}
+
+.home-content {
+  text-align: center;
+  align-items: center;
+}
+
+.home-content h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  padding-top: 100px;
+  font-weight: normal;
+  color: #303030;
+}
+
+.home-content p {
+  margin: 50px auto;
+  width: 40rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: normal;
+  font-size: 1.1rem;
+  line-height: 2rem;
+}
+
+.span-hl {
+  color: #EC7160;
+}
+
+.home-content img {
+  height: 190px;
+}
+
+.home-content button {
+  height: 40px;
+  width: 265px;
+  background: #EC7160;
+  border-radius: 7px;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.form-div {
+  text-align: center;
+  align-items: center;
+}
+
+form {
+  text-align: left;
+  width: 40rem;
+  margin: 60px 0px auto;
+  display: inline-block;
+}
+
+.form-fields {
+  margin-bottom: 30px;
+}
+
+.form-fields > label {
+  color: #898989;
+}
+
+.form-fields > input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  background: #F6F6F6;
+  border: none;
+}
+
+.form-fields > textarea {
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.row .form-fields {
+  flex-basis: 48%;
+}
+
+form > button {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 7px;
+  background: #EC7160;
+  color: white;
+  cursor: pointer;
+}
+
+.mde-header .mde-tabs button {
+  border-radius: 2px;
+  margin: 6px 3px;
+  background-color: #f09e93;
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+  width: 80px
+}
+
+.mde-header .mde-tabs button.selected {
+  border: none;
+  background-color: #EC7160;
+}
+
+.mde-header .mde-tabs button:first-child {
+  margin-left: 10px;
+}
